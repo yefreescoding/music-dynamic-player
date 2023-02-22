@@ -1,6 +1,7 @@
 * {
-  border: 1px red solid;
+  border: 0.5px red solid;
   box-sizing: border-box;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 html {
@@ -12,6 +13,7 @@ body {
   align-items: center;
   place-items: center;
   margin-top: 6em;
+  margin-bottom: 100vh;
 }
 
 main {
@@ -27,6 +29,48 @@ main {
   justify-content: space-between;
   text-align: center;
   height: 100%;
+  padding: 0 14.2%;
+  height: 100%;
+  background-image: linear-gradient(hsl(252deg, 100%, 67%), hsl(241deg, 81%, 54%));
+  border-radius: 28px;
+  border: none;
+}
+.resultsDiv h3 {
+  margin-top: 1.5em;
+  font-size: 1.18em;
+  color: hsl(241deg, 100%, 89%);
+}
+.resultsDiv h2 {
+  font-size: 1.8em;
+  color: hsl(0deg, 0%, 100%);
+  margin-bottom: 0;
+}
+.resultsDiv p {
+  padding-bottom: 18%;
+  margin-top: 1em 2em;
+  font-size: 1em;
+  font-weight: 100;
+  color: hsl(241deg, 100%, 89%);
+}
+
+.circle-results {
+  margin-top: 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 80px;
+  background-image: linear-gradient(hsl(256deg, 72%, 46%), hsla(241deg, 72%, 46%, 0));
+}
+.circle-results h1 {
+  margin: 0;
+  font-size: 3.5em;
+  color: hsl(0deg, 0%, 100%);
+}
+.circle-results span {
+  color: hsl(241deg, 100%, 89%);
 }
 
 .summaryDiv {
