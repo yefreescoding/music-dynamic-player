@@ -20,7 +20,7 @@ $LightLavender: hsl(241, 100%, 89%);
 $DarkGrayBlue: hsl(224, 30%, 27%);
 
 * {
-  border: 0.5px red solid;
+  /*border: 0.5px red solid;*/
   box-sizing: border-box;
   font-family: 'Hanken Grotesk', sans-serif;
 }
@@ -35,9 +35,14 @@ body {
   margin-bottom: 100vh;
 }
 main {
+  max-width: 600px;
+  min-width: 340px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 5% 25%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 100px;
 }
 
 .resultsDiv {
@@ -50,7 +55,7 @@ main {
   padding: 0 14.2%;
   height: 100%;
   background-image: linear-gradient($LightSlateBlue, $LightRoyalBlue);
-  border-radius: 28px;
+  border-radius: 20px;
   border: none;
   h3 {
     margin-top: 1.5em;
@@ -79,6 +84,7 @@ main {
   height: 150px;
   width: 150px;
   border-radius: 80px;
+  /*box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;*/
   background-image: linear-gradient( $VioletBlue, $PersianBlue);
   h1 {
     margin: 0;
@@ -94,6 +100,27 @@ main {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  h3 {
+    margin-left: 1.3em;
+    margin-top: 1.5em;
+    color: $DarkGrayBlue;
+  }
+ .stats-sumary .show-stats.rojo {
+  background-color: hsla(0, 95%, 93%, 0.592);
+  color: $Lightred;
+ }
+ .stats-sumary .show-stats.amarillo {
+  background-color: hsla(49, 94%, 93%, 0.592);
+  color: $Orangeyyellow;
+ }
+ .stats-sumary .show-stats.verde {
+  background-color: hsla(106, 94%, 93%, 0.592);
+  color: $Greenteal;
+ }
+ .stats-sumary .show-stats.lila {
+  background-color: hsla(274, 94%, 93%, 0.592);
+  color: $VioletBlue;
+ }
 }
 .stats-sumary {
   display: grid;
@@ -105,6 +132,12 @@ main {
   align-items: center;
   justify-content: space-between;
   margin: 0 8%;
+  border-radius: 8px;
+  padding: 0px 10px;
+  border: none;
+  img{
+    margin-right: 5px;
+  }
   div {
     display: flex;
   }
@@ -112,10 +145,39 @@ main {
     margin: 0;
     padding: 0;
   }
+  p {
+    color: $LightRoyalBlue;
+  }
+  p span.result {
+    color: #111;
+    font-weight: bold;
+  }
 }
+
 .summary-button {
   display: flex;
   justify-content: center;
+  align-items: center;
+  button {
+    width: 80%;
+    font-size: 1em;
+    color: $VioletBlue;
+    background-color: white;
+    background-image: none;
+    padding: 10px 10px;
+    border-radius: 25px;
+    border: none;
+    border: 0.5px solid $VioletBlue;
+    margin: 32px 0;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  button:hover {
+    background-image: linear-gradient($LightSlateBlue, $LightRoyalBlue);
+    color: white;
+    /*transform: scale(1.02, 1.05);*/
+    border: 0.5 solid white;
+  }
 }
 footer {
   display: grid;
