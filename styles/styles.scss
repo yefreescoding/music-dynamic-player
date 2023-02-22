@@ -1,0 +1,85 @@
+// Primary colors
+$Lightred: hsl(0, 100%, 67%);
+$Orangeyyellow: hsl(39, 100%, 56%);
+$Greenteal: hsl(166, 100%, 37%);
+$Cobaltblue: hsl(234, 85%, 45%);
+
+//Gradients:
+//(background)
+$LightSlateBlue: hsl(252, 100%, 67%);
+$LightRoyalBlue: hsl(241, 81%, 54%);
+//(circle)
+$VioletBlue: hsla(256, 72%, 46%, 1);
+$PersianBlue: hsla(241, 72%, 46%, 0);
+
+//Neutral
+
+$White: hsl(0, 0%, 100%);
+$PaleBlue: hsl(221, 100%, 96%);
+$LightLavender: hsl(241, 100%, 89%);
+$DarkGrayBlue: hsl(224, 30%, 27%);
+
+* {
+  border: 1px red solid;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  display: grid;
+  align-items: center;
+  place-items: center;
+  margin-top: 6em;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5% 25%;
+}
+
+.resultsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+}
+.summaryDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.stats-sumary {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+}
+.show-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 8%;
+  div {
+    display: flex;
+  }
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+}
+.summary-button {
+  display: flex;
+  justify-content: center;
+}
+footer {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  text-align: center;
+  div p {
+    margin: 0;
+    padding: 0;
+  }
+}
