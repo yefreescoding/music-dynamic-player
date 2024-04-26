@@ -1,0 +1,29 @@
+.music_actions {
+  background-color: hsl(0, 0%, 13%);
+  box-shadow: 0 0 2px hsl(0, 0%, 70%);
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0.3;
+  border-radius: 15px;
+  transition: 300ms ease-in-out;
+  transition-property: all;
+  overflow: hidden;
+
+  & > * {
+    transition: transform 200ms linear;
+    transition-delay: 100ms;
+    transform: translateY(100%) scale(0.5);
+  }
+
+  &[aria-hidden="true"] {
+    height: 126.79px;
+    margin: 1rem;
+    padding: 12px;
+    opacity: 1;
+
+    & > * {
+      transform: translateY(0) scale(1);
+    }
+  }
+}

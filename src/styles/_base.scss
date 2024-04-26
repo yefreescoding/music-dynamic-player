@@ -1,0 +1,26 @@
+@mixin fontFamily($weight) {
+  font-family: "Anek Devanagari", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+body {
+  @include fontFamily(400);
+  padding: 1rem;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+main {
+  min-height: 100dvh;
+  display: grid;
+  padding: 1rem;
+  justify-content: center;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 1rem;
+}
+
+h1 {
+  @include fontFamily(500);
+}
