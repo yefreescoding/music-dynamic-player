@@ -1,0 +1,213 @@
+{
+  "musicList": [
+    {
+      "id": 12344,
+      "title": "Cosas Pasan",
+      "artist": "z tango",
+      "album": "Martes por la mañana",
+      "cover": "/covers/music-cover.jpg",
+      "trackDuration": 144,
+      "coverColors": ["#8B6840", "#13150E"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 56789,
+      "title": "The River",
+      "artist": "Bruce Springsteen",
+      "album": "The River",
+      "cover": "/covers/music-cover-3.jpg",
+      "trackDuration": 310,
+      "coverColors": ["#7C4420", "#38210D"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 101112,
+      "title": "Purple Haze",
+      "artist": "Jimio Hendrix",
+      "album": "Are You Experienced",
+      "cover": "/covers/music-cover-4.jpg",
+      "trackDuration": 176,
+      "coverColors": ["#94512F", "#1E1C1B"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 131415,
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "cover": "/covers/music-cover-5.jpg",
+      "trackDuration": 354,
+      "coverColors": ["#377A56", "#181C1F"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 161718,
+      "title": "Like a Rolling Stone",
+      "artist": "Bob Dylan",
+      "album": "Highway 61 Revisited",
+      "cover": "/covers/music-cover-6.jpg",
+      "trackDuration": 362,
+      "coverColors": ["#502E26", "#2C2A20"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 192021,
+      "title": "Smells Like Teen Spirit",
+      "artist": "Norvano",
+      "album": "Nevermore",
+      "cover": "/covers/music-cover-7.jpg",
+      "trackDuration": 301,
+      "coverColors": ["#907E6C", "#1E1410"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 222324,
+      "title": "Stairway to Heaven",
+      "artist": "Led Zeppelin",
+      "album": "Led Zeppelin IV",
+      "cover": "/covers/music-cover-8.jpg",
+      "trackDuration": 482,
+      "coverColors": ["#855237", "#150905"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 252627,
+      "title": "I'll Find You",
+      "artist": "Central T",
+      "album": "Imagine",
+      "cover": "/covers/music-cover-9.jpg",
+      "trackDuration": 184,
+      "coverColors": ["#87695B", "#11121A"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 282930,
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "album": "Hotel California",
+      "cover": "/covers/music-cover-10.jpg",
+      "trackDuration": 390,
+      "coverColors": ["#65544B", "#2A2A27"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 313233,
+      "title": "Hey Jude",
+      "artist": "The Beatles",
+      "album": "Hey Jude",
+      "cover": "/covers/music-cover-11.jpg",
+      "trackDuration": 429,
+      "coverColors": ["#79251E", "#161917"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 343536,
+      "title": "Comfortably Numb",
+      "artist": "Pink Floyd",
+      "album": "The Wall",
+      "cover": "/covers/music-cover-12.jpg",
+      "trackDuration": 382,
+      "coverColors": ["#5E5044", "#1D1613"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 373839,
+      "title": "Wish You Were Here",
+      "artist": "Pink Floyd",
+      "album": "Wish You Were Here",
+      "cover": "/covers/music-cover-13.jpg",
+      "trackDuration": 334,
+      "coverColors": ["#763F2C", "#170803"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 404142,
+      "title": "Satisfaction",
+      "artist": "The Rolling Stones",
+      "album": "Out of Our Heads",
+      "cover": "/covers/music-cover-14.jpg",
+      "trackDuration": 232,
+      "coverColors": ["#ff0000", "#000000", "#ffcc00"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 434445,
+      "title": "Johnny B. Goode",
+      "artist": "Chuck Berry",
+      "album": "Chuck Berry Is on Top",
+      "cover": "/covers/music-cover-15.jpg",
+      "trackDuration": 166,
+      "coverColors": ["#000000", "#ffff00", "#ff0000"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 464748,
+      "title": "All Along the Watchtower",
+      "artist": "Jimi Hendrix",
+      "album": "Electric Ladyland",
+      "cover": "/covers/music-cover-16.jpg",
+      "trackDuration": 243,
+      "coverColors": ["#ffff00", "#ff0000", "#000000"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 495051,
+      "title": "What's Going On",
+      "artist": "Marvin Gaye",
+      "album": "What's Going On",
+      "cover": "/covers/music-cover-17.jpg",
+      "trackDuration": 212,
+      "coverColors": ["#008000", "#ffffff", "#000000"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 525354,
+      "title": "Born to Run",
+      "artist": "Bruce Springsteen",
+      "album": "Born to Run",
+      "cover": "/covers/music-cover-18.jpg",
+      "trackDuration": 299,
+      "coverColors": ["#0000ff", "#ffcc00", "#ffffff"],
+      "isFavorite": false,
+      "explicit": false
+    },
+    {
+      "id": 555657,
+      "title": "Thunder Road",
+      "artist": "Bruce Springsteen",
+      "album": "Born to Run",
+      "cover": "/covers/music-cover-19.jpg",
+      "trackDuration": 271,
+      "coverColors": ["#ff0000", "#0000ff", "#ffff00"],
+      "isFavorite": true,
+      "explicit": false
+    },
+    {
+      "id": 585960,
+      "title": "Bridge Over Troubled Water",
+      "artist": "Simon & Garfunkel",
+      "album": "Bridge Over Troubled Water",
+      "cover": "/covers/music-cover-20.jpg",
+      "trackDuration": 292,
+      "coverColors": ["#0000ff", "#ffffff", "#00ff00"],
+      "isFavorite": false,
+      "explicit": false
+    }
+  ]
+}

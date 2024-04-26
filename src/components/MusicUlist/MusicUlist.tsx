@@ -2,11 +2,21 @@ import { motion, Variants } from "framer-motion";
 
 import styles from "./MusicUlist.module.scss";
 
-import cover from "/covers/music-cover.jpg";
-import Heart from "../icons/Heart";
+import PlaylistDrag from "../icons/PlaylistDrag";
 
 interface MusicUlistProps {
   aria: boolean;
+  tracks: {
+    id: number;
+    title: string;
+    artist: string;
+    album: string;
+    cover: string;
+    trackDuration: number;
+    coverColors: string[];
+    isFavorite: boolean;
+    explicit: boolean;
+  }[];
 }
 
 const itemVariants: Variants = {
@@ -18,7 +28,7 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.5 } },
 };
 
-export default function MusicUlist({ aria }: MusicUlistProps) {
+export default function MusicUlist({ aria, tracks }: MusicUlistProps) {
   return (
     <motion.ul
       className={styles.music_card__ul}
@@ -29,8 +39,8 @@ export default function MusicUlist({ aria }: MusicUlistProps) {
           transition: {
             type: "spring",
             bounce: 0,
-            duration: 0.7,
-            delayChildren: 0.5,
+            duration: 0.4,
+            delayChildren: 0.3,
             staggerChildren: 0.07,
           },
         },
@@ -44,55 +54,27 @@ export default function MusicUlist({ aria }: MusicUlistProps) {
       }}
     >
       <motion.li className={styles.music_card__li} variants={itemVariants}>
-        <div className={styles.music_card__cover_li}>
-          <img src={cover} alt="" />
-        </div>
         <div>
-          <h3>Song title</h3>
-          <p>Song artists</p>
+          <h3>Playing next</h3>
+          <p>Autoplaying your favorite music</p>
         </div>
-        <Heart />
       </motion.li>
-      <motion.li className={styles.music_card__li} variants={itemVariants}>
-        <div className={styles.music_card__cover_li}>
-          <img src={cover} alt="" />
-        </div>
-        <div>
-          <h3>Song title</h3>
-          <p>Song artists</p>
-        </div>
-        <Heart />
-      </motion.li>
-      <motion.li className={styles.music_card__li} variants={itemVariants}>
-        <div className={styles.music_card__cover_li}>
-          <img src={cover} alt="" />
-        </div>
-        <div>
-          <h3>Song title</h3>
-          <p>Song artists</p>
-        </div>
-        <Heart />
-      </motion.li>
-      <motion.li className={styles.music_card__li} variants={itemVariants}>
-        <div className={styles.music_card__cover_li}>
-          <img src={cover} alt="" />
-        </div>
-        <div>
-          <h3>Song title</h3>
-          <p>Song artists</p>
-        </div>
-        <Heart />
-      </motion.li>
-      <motion.li className={styles.music_card__li} variants={itemVariants}>
-        <div className={styles.music_card__cover_li}>
-          <img src={cover} alt="" />
-        </div>
-        <div>
-          <h3>Song title</h3>
-          <p>Song artists</p>
-        </div>
-        <Heart />
-      </motion.li>
+      {tracks.map((item) => (
+        <motion.li
+          key={item.id}
+          className={styles.music_card__li}
+          variants={itemVariants}
+        >
+          <div className={styles.music_card__cover_li}>
+            <img src={item.cover} alt="" />
+          </div>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.artist}</p>
+          </div>
+          <PlaylistDrag />
+        </motion.li>
+      ))}
     </motion.ul>
   );
 }

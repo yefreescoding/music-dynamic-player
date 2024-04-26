@@ -1,9 +1,38 @@
 import styles from "./MusicControls.module.scss";
 
-export default function MusicControls() {
+interface MusicControlsProps {
+  currentTrack: number;
+  totalTracks: number;
+  setTrack: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function MusicControls({
+  currentTrack,
+  setTrack,
+  totalTracks,
+}: MusicControlsProps) {
+  const handleForwardTrack = () => {
+    if (currentTrack >= totalTracks - 1) {
+      setTrack(0);
+    } else {
+      setTrack(currentTrack + 1);
+    }
+  };
+  const handlePreviousTrack = () => {
+    if (currentTrack === 0) {
+      setTrack(totalTracks - 1);
+    } else {
+      setTrack(currentTrack - 1);
+    }
+  };
+
   return (
     <div className={styles.music_controls}>
-      <button aria-controls="previous">
+      <button
+        aria-controls="previous"
+        type="button"
+        onClick={handlePreviousTrack}
+      >
         <svg
           width="28px"
           height="28px"
@@ -51,7 +80,11 @@ export default function MusicControls() {
           ></path>
         </svg>
       </button>
-      <button aria-controls="forward">
+      <button
+        aria-controls="forward"
+        type="button"
+        onClick={handleForwardTrack}
+      >
         <svg
           width="28px"
           height="28px"
