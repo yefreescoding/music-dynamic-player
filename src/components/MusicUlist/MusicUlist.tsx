@@ -56,7 +56,6 @@ export default function MusicUlist({
   aria,
   tracks,
   setTrack,
-  currentTrack,
 }: MusicUlistProps) {
   const handlePlayTrack = (id: number) => {
     const index = tracks.findIndex((x) => x.id === id);
