@@ -1,5 +1,4 @@
 .music_card__ul {
-  position: relative;
   background-color: hsla(0, 0%, 5%, 0.7);
   backdrop-filter: blur(1px);
   box-shadow: 0 0 2px hsl(0, 0%, 70%);
@@ -32,12 +31,6 @@
     font-size: 0.9;
     transition: background 100ms linear;
     gap: 1rem;
-
-    &:nth-child(1) {
-      position: sticky;
-      top: -0rem;
-      background-color: hsla(0, 0%, 5%, 0.9);
-    }
 
     &:hover:not(&:nth-child(1)) {
       background-color: hsl(0, 0%, 20%);
