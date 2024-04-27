@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-block: 1rem;
 
   & button {
     display: inline-flex;
@@ -12,20 +13,37 @@
     padding: 0.5rem;
     transition: 200ms linear;
     transition-property: background, transform;
+    overflow: hidden;
 
     & svg {
       --_size: 45px;
       width: var(--_size);
       height: var(--_size);
+      transition: transform 200ms linear;
     }
 
-    &:hover {
+    &:nth-child(2) svg {
+      --_size: 55px;
+    }
+
+    &:nth-child(2):hover {
       transform: scale(1.09);
     }
 
-    &:active {
+    &:nth-child(1):active {
       background-color: hsl(0, 0%, 25%);
-      transform: rotate(8deg);
+
+      svg {
+        transform: translateX(-35px);
+      }
+    }
+
+    &:nth-child(3):active {
+      background-color: hsl(0, 0%, 25%);
+
+      svg {
+        transform: translateX(35px);
+      }
     }
   }
 }

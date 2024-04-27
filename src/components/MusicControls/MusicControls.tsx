@@ -1,29 +1,74 @@
 import styles from "./MusicControls.module.scss";
 
 interface MusicControlsProps {
-  currentTrack: number;
-  totalTracks: number;
-  setTrack: React.Dispatch<React.SetStateAction<number>>;
+  isPlaying: boolean;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  currentTrack: {
+    id: number;
+    title: string;
+    artist: string;
+    album: string;
+    cover: string;
+    trackDuration: number;
+    coverColors: string[];
+    isFavorite: boolean;
+    explicit: boolean;
+  };
+  tracks: {
+    id: number;
+    title: string;
+    artist: string;
+    album: string;
+    cover: string;
+    trackDuration: number;
+    coverColors: string[];
+    isFavorite: boolean;
+    explicit: boolean;
+  }[];
+  setTrack: React.Dispatch<
+    React.SetStateAction<{
+      id: number;
+      title: string;
+      artist: string;
+      album: string;
+      cover: string;
+      trackDuration: number;
+      coverColors: string[];
+      isFavorite: boolean;
+      explicit: boolean;
+    }>
+  >;
 }
 
 export default function MusicControls({
+  isPlaying,
+  setIsPlaying,
   currentTrack,
   setTrack,
-  totalTracks,
+  tracks,
 }: MusicControlsProps) {
   const handleForwardTrack = () => {
-    if (currentTrack >= totalTracks - 1) {
-      setTrack(0);
+    const index = tracks.findIndex((x) => x.id === currentTrack.id);
+
+    if (index >= tracks.length - 1) {
+      setTrack(tracks[0]);
     } else {
-      setTrack(currentTrack + 1);
+      setTrack(tracks[index + 1]);
     }
   };
+
   const handlePreviousTrack = () => {
-    if (currentTrack === 0) {
-      setTrack(totalTracks - 1);
+    const index = tracks.findIndex((x) => x.id === currentTrack.id);
+
+    if (index === 0) {
+      setTrack(tracks[tracks.length - 1]);
     } else {
-      setTrack(currentTrack - 1);
+      setTrack(tracks[index - 1]);
     }
+  };
+
+  const handlePlayPauseState = () => {
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -60,25 +105,50 @@ export default function MusicControls({
           ></path>
         </svg>
       </button>
-      <button aria-controls="play">
-        <svg
-          width="32px"
-          height="32px"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          color="currentColor"
-          strokeWidth="1.2"
-        >
-          <path
-            d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z"
-            fill="currentColor"
-            stroke="currentColor"
+      <button aria-controls="play" onClick={handlePlayPauseState}>
+        {isPlaying ? (
+          <svg
+            width="28px"
+            height="28px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="currentColor"
             strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
-        </svg>
+          >
+            <path
+              d="M6 18.4V5.6C6 5.26863 6.26863 5 6.6 5H9.4C9.73137 5 10 5.26863 10 5.6V18.4C10 18.7314 9.73137 19 9.4 19H6.6C6.26863 19 6 18.7314 6 18.4Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="1.2"
+            ></path>
+            <path
+              d="M14 18.4V5.6C14 5.26863 14.2686 5 14.6 5H17.4C17.7314 5 18 5.26863 18 5.6V18.4C18 18.7314 17.7314 19 17.4 19H14.6C14.2686 19 14 18.7314 14 18.4Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="1.2"
+            ></path>
+          </svg>
+        ) : (
+          <svg
+            width="32px"
+            height="32px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="currentColor"
+            strokeWidth="1.2"
+          >
+            <path
+              d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+        )}
       </button>
       <button
         aria-controls="forward"

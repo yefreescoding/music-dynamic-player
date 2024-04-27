@@ -3,13 +3,13 @@ import styles from "./MusicCard.module.scss";
 
 import { motion } from "framer-motion";
 
-import soundWave from "/icons/sound-wave-ani.gif";
+import soundWaveAni from "/icons/sound-wave-ani.gif";
+import soundWavePause from "/icons/wave-sound-pause.svg";
 
 import data from "../../data/music.json";
 
 // component imports
 import MusicCover from "../MusicCover/MusicCover";
-import MusicListBtn from "../MusicListBtn/MusicListBtn";
 import MusicActions from "../MusicActions/MusicActions";
 import MusicUlist from "../MusicUlist/MusicUlist";
 
@@ -19,9 +19,11 @@ export default function MusicCard() {
   const [listAriaMenu, setListAriaMenu] = useState(false);
   const [controlsAria, setControlsAria] = useState(false);
   const [backgroundCover, setBackgroundCover] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState(0);
 
-  const tracks = data.musicList;
+  const [tracks] = useState(data.musicList);
+  const [currentTrack, setCurrentTrack] = useState(tracks[0]);
+
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleListOpen = () => {
     setListAriaMenu(!listAriaMenu);
@@ -47,7 +49,7 @@ export default function MusicCard() {
       }}
       className={styles.music_card}
       style={{
-        backgroundImage: `linear-gradient(to bottom, ${tracks[currentTrack].coverColors[0]} 0%, ${tracks[currentTrack].coverColors[1]} 90%)`,
+        backgroundImage: `linear-gradient(to bottom, ${currentTrack.coverColors[0]} 0%, ${currentTrack.coverColors[1]} 90%)`,
       }}
     >
       <div
@@ -55,7 +57,7 @@ export default function MusicCard() {
           position: "absolute",
           inset: "-1rem",
           zIndex: "-1",
-          backgroundImage: `url(${tracks[currentTrack].cover})`,
+          backgroundImage: `url(${currentTrack.cover})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           filter: "blur(0.5rem) brightness(0.5)",
@@ -63,7 +65,7 @@ export default function MusicCard() {
         }}
       ></div>
       <div onClick={handleCoverOpen}>
-        <MusicCover cover={tracks[currentTrack].cover} aria={coverAria} />
+        <MusicCover cover={currentTrack.cover} aria={coverAria} />
       </div>
       <div className={styles.music_card__info}>
         <button
@@ -72,7 +74,7 @@ export default function MusicCard() {
           onClick={handleCoverOpen}
           aria-hidden={coverAria}
         >
-          <img src={tracks[currentTrack].cover} alt="" />
+          <img src={currentTrack.cover} alt="" />
         </button>
         <div
           onClick={() => {
@@ -82,19 +84,27 @@ export default function MusicCard() {
             setBackgroundCover(false);
           }}
         >
-          <h1>{tracks[currentTrack].title}</h1>
-          <p>{tracks[currentTrack].artist}</p>
+          <h1>{currentTrack.title}</h1>
+          <p>{currentTrack.artist}</p>
         </div>
-        <img src={soundWave} alt="" />
+        <img src={isPlaying ? soundWaveAni : soundWavePause} alt="" />
       </div>
       <MusicActions
+        trackDuration={currentTrack.trackDuration}
         aria={controlsAria}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
         currentTrack={currentTrack}
         setTrack={setCurrentTrack}
-        totalTracks={tracks.length}
+        tracks={tracks}
+        handleMusicList={handleListOpen}
       />
-      <MusicUlist aria={listAriaMenu} tracks={tracks} />
-      <MusicListBtn aria={listAria} toggleListAria={handleListOpen} />
+      <MusicUlist
+        aria={listAriaMenu}
+        tracks={tracks}
+        currentTrack={currentTrack}
+        setTrack={setCurrentTrack}
+      />
     </motion.article>
   );
 }

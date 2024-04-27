@@ -17,6 +17,30 @@ interface MusicUlistProps {
     isFavorite: boolean;
     explicit: boolean;
   }[];
+  currentTrack: {
+    id: number;
+    title: string;
+    artist: string;
+    album: string;
+    cover: string;
+    trackDuration: number;
+    coverColors: string[];
+    isFavorite: boolean;
+    explicit: boolean;
+  };
+  setTrack: React.Dispatch<
+    React.SetStateAction<{
+      id: number;
+      title: string;
+      artist: string;
+      album: string;
+      cover: string;
+      trackDuration: number;
+      coverColors: string[];
+      isFavorite: boolean;
+      explicit: boolean;
+    }>
+  >;
 }
 
 const itemVariants: Variants = {
@@ -28,7 +52,18 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.5 } },
 };
 
-export default function MusicUlist({ aria, tracks }: MusicUlistProps) {
+export default function MusicUlist({
+  aria,
+  tracks,
+  setTrack,
+  currentTrack,
+}: MusicUlistProps) {
+  const handlePlayTrack = (id: number) => {
+    const index = tracks.findIndex((x) => x.id === id);
+
+    setTrack(tracks[index]);
+  };
+
   return (
     <motion.ul
       className={styles.music_card__ul}
@@ -64,6 +99,7 @@ export default function MusicUlist({ aria, tracks }: MusicUlistProps) {
           key={item.id}
           className={styles.music_card__li}
           variants={itemVariants}
+          onClick={() => handlePlayTrack(item.id)}
         >
           <div className={styles.music_card__cover_li}>
             <img src={item.cover} alt="" />

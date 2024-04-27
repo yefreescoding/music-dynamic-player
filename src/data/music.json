@@ -139,29 +139,29 @@
       "album": "Out of Our Heads",
       "cover": "/covers/music-cover-14.jpg",
       "trackDuration": 232,
-      "coverColors": ["#ff0000", "#000000", "#ffcc00"],
+      "coverColors": ["#55261F", "#141216"],
       "isFavorite": false,
       "explicit": false
     },
     {
       "id": 434445,
       "title": "Johnny B. Goode",
-      "artist": "Chuck Berry",
-      "album": "Chuck Berry Is on Top",
+      "artist": "Trapzz Kidd",
+      "album": "We on Top",
       "cover": "/covers/music-cover-15.jpg",
       "trackDuration": 166,
-      "coverColors": ["#000000", "#ffff00", "#ff0000"],
+      "coverColors": ["#C44C12", "#47332B"],
       "isFavorite": true,
       "explicit": false
     },
     {
       "id": 464748,
-      "title": "All Along the Watchtower",
-      "artist": "Jimi Hendrix",
+      "title": "All By Ourselves Watchtower",
+      "artist": "Malaga Boy",
       "album": "Electric Ladyland",
       "cover": "/covers/music-cover-16.jpg",
       "trackDuration": 243,
-      "coverColors": ["#ffff00", "#ff0000", "#000000"],
+      "coverColors": ["#617D75", "#313946"],
       "isFavorite": false,
       "explicit": false
     },
@@ -172,7 +172,7 @@
       "album": "What's Going On",
       "cover": "/covers/music-cover-17.jpg",
       "trackDuration": 212,
-      "coverColors": ["#008000", "#ffffff", "#000000"],
+      "coverColors": ["#3F3F3F", "#1B1B1B"],
       "isFavorite": true,
       "explicit": false
     },
@@ -183,7 +183,7 @@
       "album": "Born to Run",
       "cover": "/covers/music-cover-18.jpg",
       "trackDuration": 299,
-      "coverColors": ["#0000ff", "#ffcc00", "#ffffff"],
+      "coverColors": ["#9D9596", "#2D282E"],
       "isFavorite": false,
       "explicit": false
     },
@@ -194,7 +194,7 @@
       "album": "Born to Run",
       "cover": "/covers/music-cover-19.jpg",
       "trackDuration": 271,
-      "coverColors": ["#ff0000", "#0000ff", "#ffff00"],
+      "coverColors": ["#618261", "#463021"],
       "isFavorite": true,
       "explicit": false
     },
@@ -205,7 +205,7 @@
       "album": "Bridge Over Troubled Water",
       "cover": "/covers/music-cover-20.jpg",
       "trackDuration": 292,
-      "coverColors": ["#0000ff", "#ffffff", "#00ff00"],
+      "coverColors": ["#2A3534", "#181717"],
       "isFavorite": false,
       "explicit": false
     }

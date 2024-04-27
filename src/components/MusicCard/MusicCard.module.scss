@@ -6,7 +6,8 @@
   isolation: isolate;
   background-color: var(--_clr-card-bgk);
   color: white;
-  width: 377px;
+  width: 100%;
+  max-width: 414px;
   height: fit-content;
   border-radius: 1.7rem;
   overflow: hidden;
@@ -44,6 +45,7 @@
 
     & h1 {
       color: var(--_clr-card-main-text);
+      font-size: 1.2rem;
     }
     & p {
       color: var(--_clr-card-base-text);
