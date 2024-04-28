@@ -46,7 +46,7 @@ export default function MusicCard() {
       className={styles.music_card}
       style={{
         backgroundImage: `linear-gradient(to bottom, ${currentTrack.coverColors[0]} 0%, ${currentTrack.coverColors[1]} 90%)`,
-        boxShadow: `0 10px 26px ${currentTrack.coverColors[0]}`,
+        boxShadow: `0 10px 26px ${currentTrack.coverColors[1]}`,
       }}
     >
       <div

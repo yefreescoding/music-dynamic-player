@@ -14,13 +14,12 @@ export default function MusicCover({
 }: MusicCoverProps) {
   return (
     <div className={styles.music_cover} aria-hidden={aria}>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         <motion.img
           key={cover}
           initial={{ filter: "blur(20px)", opacity: 0 }}
           animate={{ filter: "blur(0)", opacity: 1 }}
           exit={{ filter: "blur(20px)", opacity: 0 }}
-          transition={{ duration: 0.3 }}
           style={{
             scale: `${isPlaying ? 1.15 : 1}`,
           }}
