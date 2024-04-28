@@ -1,17 +1,21 @@
 import { useState } from "react";
 import styles from "./MusicCard.module.scss";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
+// Icons imports
 import soundWaveAni from "/icons/sound-wave-ani.gif";
 import soundWavePause from "/icons/wave-sound-pause.svg";
 
+// data import
 import data from "../../data/music.json";
 
 // component imports
 import MusicCover from "../MusicCover/MusicCover";
 import MusicActions from "../MusicActions/MusicActions";
 import MusicUlist from "../MusicUlist/MusicUlist";
+import PlayButton from "../PlayButton/PlayButton";
+import ForwardButton from "../ForwardButton/ForwardButton";
 
 export default function MusicCard() {
   const [coverAria, setCoverAria] = useState(false);
@@ -39,17 +43,10 @@ export default function MusicCard() {
 
   return (
     <motion.article
-      initial={{ scale: 1 }}
-      whileTap={{ scale: 1.02 }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        duration: 0.2,
-        delay: 0.05,
-      }}
       className={styles.music_card}
       style={{
         backgroundImage: `linear-gradient(to bottom, ${currentTrack.coverColors[0]} 0%, ${currentTrack.coverColors[1]} 90%)`,
+        boxShadow: `0 10px 26px ${currentTrack.coverColors[0]}`,
       }}
     >
       <div
@@ -65,7 +62,11 @@ export default function MusicCard() {
         }}
       ></div>
       <div onClick={handleCoverOpen}>
-        <MusicCover cover={currentTrack.cover} aria={coverAria} />
+        <MusicCover
+          isPlaying={isPlaying}
+          cover={currentTrack.cover}
+          aria={coverAria}
+        />
       </div>
       <div className={styles.music_card__info}>
         <button
@@ -87,8 +88,46 @@ export default function MusicCard() {
           <h1>{currentTrack.title}</h1>
           <p>{currentTrack.artist}</p>
         </div>
-        <img src={isPlaying ? soundWaveAni : soundWavePause} alt="" />
+        <div className={styles.music_card__info__sound}>
+          <AnimatePresence>
+            {controlsAria ? (
+              <motion.img
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -300, opacity: 0 }}
+                transition={{ duration: 0.5, type: "spring" }}
+                src={isPlaying ? soundWaveAni : soundWavePause}
+                alt="icono"
+              />
+            ) : (
+              <motion.div
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -300, opacity: 0 }}
+                transition={{ duration: 0.5, type: "spring" }}
+              >
+                <PlayButton
+                  size="33px"
+                  isPlaying={isPlaying}
+                  setIsPlaying={setIsPlaying}
+                />
+                <ForwardButton
+                  size="27px"
+                  tracks={tracks}
+                  currentTrack={currentTrack}
+                  setTrack={setCurrentTrack}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
+      <MusicUlist
+        aria={listAriaMenu}
+        tracks={tracks}
+        currentTrack={currentTrack}
+        setTrack={setCurrentTrack}
+      />
       <MusicActions
         trackDuration={currentTrack.trackDuration}
         aria={controlsAria}
@@ -98,12 +137,6 @@ export default function MusicCard() {
         setTrack={setCurrentTrack}
         tracks={tracks}
         handleMusicList={handleListOpen}
-      />
-      <MusicUlist
-        aria={listAriaMenu}
-        tracks={tracks}
-        currentTrack={currentTrack}
-        setTrack={setCurrentTrack}
       />
     </motion.article>
   );

@@ -1,13 +1,13 @@
 .music_card__ul {
   position: relative;
-  background-color: hsla(0, 0%, 5%, 0.7);
-  backdrop-filter: blur(1px);
+  background-color: hsla(0, 0%, 10%, 0.2);
+  backdrop-filter: blur(16px);
   box-shadow: 0 0 2px hsl(0, 0%, 70%);
   margin: 0;
   padding: 0;
   height: 0;
   border-radius: 15px;
-  transition: 300ms ease-in-out;
+  transition: 400ms ease-in-out;
   transition-property: all;
 
   &::-webkit-scrollbar {
@@ -15,7 +15,7 @@
   }
 
   &[aria-hidden="true"] {
-    height: 290px;
+    height: 348px;
     margin: 1rem;
     padding: 5px;
     overflow-y: scroll;
@@ -30,17 +30,19 @@
     padding: 0.4rem;
     border-radius: 11px;
     font-size: 0.7;
-    transition: background 100ms linear;
+    transition: all 120ms linear;
     gap: 1rem;
 
     &:nth-child(1) {
-      background-color: hsla(0, 0%, 5%, 0.9);
+      background-color: hsl(0, 0%, 5%);
       position: sticky;
       top: 0;
+      margin-bottom: 3px;
     }
 
     &:hover:not(&:nth-child(1)) {
-      background-color: hsl(0, 0%, 20%);
+      background-color: hsl(0, 0%, 5%);
+      box-shadow: 0 0 2px hsl(0, 0%, 70%);
       cursor: pointer;
     }
     & h3 {

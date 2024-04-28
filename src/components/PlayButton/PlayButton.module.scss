@@ -1,0 +1,17 @@
+.play_btn {
+  --_size: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  // padding: 0.5rem;
+  transition: 200ms linear;
+  transition-property: background, transform;
+  overflow: hidden;
+
+  & svg {
+    width: var(--_size);
+    height: var(--_size);
+    transition: transform 200ms linear;
+  }
+}
