@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./MusicCover.module.scss";
 
 interface MusicCoverProps {
@@ -13,13 +14,20 @@ export default function MusicCover({
 }: MusicCoverProps) {
   return (
     <div className={styles.music_cover} aria-hidden={aria}>
-      <img
-        style={{
-          scale: `${isPlaying ? 1.15 : 1}`,
-        }}
-        src={cover}
-        alt="track cover"
-      />
+      <AnimatePresence>
+        <motion.img
+          key={cover}
+          initial={{ filter: "blur(20px)", opacity: 0 }}
+          animate={{ filter: "blur(0)", opacity: 1 }}
+          exit={{ filter: "blur(20px)", opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            scale: `${isPlaying ? 1.15 : 1}`,
+          }}
+          src={cover}
+          alt="track cover"
+        />
+      </AnimatePresence>
     </div>
   );
 }

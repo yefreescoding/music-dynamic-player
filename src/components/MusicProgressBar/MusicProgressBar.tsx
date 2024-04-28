@@ -13,7 +13,12 @@ export default function MusicProgressBar({
   isPlaying,
 }: MusicProgressBarProps) {
   const [timePassed, setTimePassed] = useState(0);
-  const [duration] = useState(trackDuration);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    setDuration(trackDuration);
+    setTimePassed(0);
+  }, [trackDuration]);
 
   const formatTimeTrack = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -39,9 +44,7 @@ export default function MusicProgressBar({
   const clickRef = useRef<HTMLDivElement>(null);
 
   const checkWidth = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Specify the type of the event
     if (clickRef.current) {
-      // Check if the ref is defined
       const width = clickRef.current.clientWidth;
       const offset = e.nativeEvent.offsetX;
 

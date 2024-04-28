@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import styles from "./MusicUlist.module.scss";
 
 import PlaylistDrag from "../icons/PlaylistDrag";
+import PlayIcon from "../icons/PlayIcon";
 
 interface MusicUlistProps {
   aria: boolean;
@@ -56,6 +57,7 @@ export default function MusicUlist({
   aria,
   tracks,
   setTrack,
+  currentTrack,
 }: MusicUlistProps) {
   const handlePlayTrack = (id: number) => {
     const index = tracks.findIndex((x) => x.id === id);
@@ -73,9 +75,9 @@ export default function MusicUlist({
           transition: {
             type: "spring",
             bounce: 0,
-            duration: 0.4,
-            delayChildren: 0.3,
-            staggerChildren: 0.07,
+            duration: 0.2,
+            delayChildren: 0.1,
+            staggerChildren: 0.03,
           },
         },
         closed: {
@@ -107,7 +109,7 @@ export default function MusicUlist({
             <h3>{item.title}</h3>
             <p>{item.artist}</p>
           </div>
-          <PlaylistDrag />
+          {currentTrack.id === item.id ? <PlayIcon /> : <PlaylistDrag />}
         </motion.li>
       ))}
     </motion.ul>

@@ -14,7 +14,7 @@
     aspect-ratio: 1;
     object-fit: cover;
     object-position: top;
-    transition: scale 200ms ease-in-out;
+    transition: all 400ms ease-in-out;
   }
 
   &[aria-hidden="false"] {
